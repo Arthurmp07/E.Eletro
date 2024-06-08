@@ -11,98 +11,104 @@
 <body>
 
     <header>
-        <div class="logo">
-            <h1>E.<span>Eletro</span></h1>
+        <div class="header-content">
+            <div class="logo">
+                <h1>E.<span>Eletro</span></h1>
+            </div>
         </div>
-        <input type="text" placeholder="Buscar...">
     </header>
 
-    <main>
-        <!--Começo filtro-->
+    <main class="content">
         <aside>
+            <form class="search-form" onsubmit="searchProducts(event)">
+                <div class="divSearch">
+                    <label for="search">Buscar dados</label>
+                    <input type="search" id="search-input" />
+                    <button type="submit">🔍</button>
+                </div>
+            </form>
             <h2>Filtre por</h2>
             <section class="line"></section>
             <h2>Preço</h2>
-            <input type="checkbox" id="precoum" name="preco" value="preco">
-            <label for="precoum">de R$25 a R$50</label>
+            <input type="checkbox" id="preco1" name="preco" value="25-50">
+            <label for="preco1">de R$25 a R$50</label>
             <br>
-            <input type="checkbox" id="precodois" name="preco" value="preco">
-            <label for="precodois">de R$25 a R$50</label>
+            <input type="checkbox" id="preco2" name="preco" value="50-100">
+            <label for="preco2">de R$50 a R$100</label>
             <br>
-            <input type="checkbox" id="precotres" name="preco" value="preco">
-            <label for="precotres">de R$25 a R$50</label>
+            <input type="checkbox" id="preco3" name="preco" value="100-200">
+            <label for="preco3">de R$100 a R$200</label>
             <br>
-            <input type="checkbox" id="precoquatro" name="preco" value="preco">
-            <label for="precoquatro">de R$25 a R$50</label>
+            <input type="checkbox" id="preco4" name="preco" value="200-500">
+            <label for="preco4">de R$200 a R$500</label>
             <br>
-            <input type="checkbox" id="precocinco" name="preco" value="preco">
-            <label for="precocinco">de R$25 a R$50</label>
+            <input type="checkbox" id="preco5" name="preco" value="500-1000">
+            <label for="preco5">de R$500 a R$1000</label>
             <section class="line"></section>
             <h2>Tipo de Produto</h2>
-            <input type="checkbox" id="produtoum" name="produto" value="produto">
-            <label for="produtoum">Geladeira</label>
+            <input type="checkbox" id="produto1" name="produto" value="geladeira">
+            <label for="produto1">Geladeira</label>
             <br>
-            <input type="checkbox" id="produtodois" name="produto" value="produto">
-            <label for="produtodois">Microondas</label>
+            <input type="checkbox" id="produto2" name="produto" value="microondas">
+            <label for="produto2">Microondas</label>
             <br>
-            <input type="checkbox" id="produtotres" name="produto" value="produto">
-            <label for="produtotres">Fogao</label>
+            <input type="checkbox" id="produto3" name="produto" value="fogao">
+            <label for="produto3">Fogão</label>
         </aside>
-        <!--fim filtro-->
-        <section class="produtos">
+
+        <section class="produtos" id="products">
             <article>
-                <section>
+                <section class="product" data-name="Produto 1" data-price="30" data-type="geladeira">
                     <img src="img/-985149444.jpg" alt="Produto 1">
                     <h3>Produto 1</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$30</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto 2" data-price="60" data-type="microondas">
                     <img src="img/-985149444.jpg" alt="Produto 2">
                     <h3>Produto 2</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$60</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
                     <img src="img/-985149444.jpg" alt="Produto 3">
                     <h3>Produto 3</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$150</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto 4" data-price="300" data-type="geladeira">
                     <img src="img/-985149444.jpg" alt="Produto 4">
                     <h3>Produto 4</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$300</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto 5" data-price="700" data-type="microondas">
                     <img src="img/-985149444.jpg" alt="Produto 5">
                     <h3>Produto 5</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$700</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto 6" data-price="80" data-type="fogao">
                     <img src="img/-985149444.jpg" alt="Produto 6">
                     <h3>Produto 6</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$80</p>
                 </section>
             </article>
             <article class="ofertas-em-alta">
                 <h2>Ofertas em Alta</h2>
-                <section>
+                <section class="product" data-name="Produto A" data-price="40" data-type="geladeira">
                     <img src="img/-985149444.jpg" alt="Produto A">
                     <h3>Produto A</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$40</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto B" data-price="90" data-type="microondas">
                     <img src="img/-985149444.jpg" alt="Produto B">
                     <h3>Produto B</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$90</p>
                 </section>
-                <section>
+                <section class="product" data-name="Produto C" data-price="180" data-type="fogao">
                     <img src="img/-985149444.jpg" alt="Produto C">
                     <h3>Produto C</h3>
-                    <p>Preço</p>
+                    <p>Preço: R$180</p>
                 </section>
             </article>
         </section>
     </main>
-    <!-- Carrosséis Adicionais -->
     <div class="additional-carousels">
         <div class="carousel">
             <div class="carousel-inner">
@@ -166,6 +172,7 @@
         </div>
     </div>
 
+
     <footer>
         <section>
             <img src="" alt="">
@@ -174,27 +181,71 @@
     </footer>
 
     <script>
-        // JavaScript para carrossel principal
-        function prevSlide(control = null) {
-            const carousel = control ? control.parentElement : document.querySelector('.carousel');
-            const items = carousel.querySelectorAll('.carousel-item');
-            const active = carousel.querySelector('.carousel-item.active');
-            let index = Array.from(items).indexOf(active);
+        function searchProducts(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
 
-            items[index].classList.remove('active');
-            index = (index - 1 + items.length) % items.length;
-            items[index].classList.add('active');
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toLowerCase();
+                if (name.includes(query)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         }
 
-        function nextSlide(control = null) {
-            const carousel = control ? control.parentElement : document.querySelector('.carousel');
-            const items = carousel.querySelectorAll('.carousel-item');
-            const active = carousel.querySelector('.carousel-item.active');
-            let index = Array.from(items).indexOf(active);
+        function filterProducts() {
+            const priceFilters = document.querySelectorAll('input[name="preco"]:checked');
+            const typeFilters = document.querySelectorAll('input[name="produto"]:checked');
 
-            items[index].classList.remove('active');
-            index = (index + 1) % items.length;
-            items[index].classList.add('active');
+            const priceRanges = Array.from(priceFilters).map(input => input.value.split('-').map(Number));
+            const types = Array.from(typeFilters).map(input => input.value);
+
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                const type = product.getAttribute('data-type');
+
+                const matchesPrice = priceRanges.length === 0 || priceRanges.some(([min, max]) => price >= min && price <= max);
+                const matchesType = types.length === 0 || types.includes(type);
+
+                if (matchesPrice && matchesType) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        document.querySelectorAll('input[name="preco"], input[name="produto"]').forEach(input => {
+            input.addEventListener('change', filterProducts);
+        });
+
+        function nextSlide(button) {
+            const carousel = button.closest('.carousel');
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            let activeIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
+
+            items[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex + 1) % items.length;
+            items[activeIndex].classList.add('active');
+            inner.style.transform = `translateX(-${activeIndex * 100}%)`;
+        }
+
+        function prevSlide(button) {
+            const carousel = button.closest('.carousel');
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            let activeIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
+
+            items[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex - 1 + items.length) % items.length;
+            items[activeIndex].classList.add('active');
+            inner.style.transform = `translateX(-${activeIndex * 100}%)`;
         }
     </script>
 </body>
