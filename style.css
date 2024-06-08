@@ -26,11 +26,11 @@ header {
 header .logo {
     display: flex;
     align-items: center;
-    padding-right: 200px;
+    padding-right: 20px;
 }
 
 header .logo h1 {
-    font-size: 48px;
+    font-size: 24px;
     color: #ff0;
     /* Amarelo */
     text-transform: uppercase;
@@ -42,7 +42,7 @@ header .logo h1 span {
 }
 
 header input[type="text"] {
-    flex-grow: 0.8;
+    flex-grow: 1;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -53,6 +53,7 @@ header input[type="text"] {
 
 main {
     display: flex;
+    flex-wrap: wrap;
     padding: 20px;
 }
 
@@ -60,12 +61,14 @@ main {
 /* Sidebar (Filters) */
 
 aside {
-    width: 800px;
+    width: 100%;
+    max-width: 300px;
     background-color: #fff;
     padding: 20px;
     margin-right: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 aside h2 {
@@ -101,7 +104,7 @@ article section {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(30% - 20px);
+    width: calc(50% - 20px);
     text-align: center;
 }
 
@@ -131,7 +134,7 @@ article section p {
 }
 
 .ofertas-em-alta section {
-    width: calc(30% - 20px);
+    width: calc(50% - 20px);
 }
 
 
@@ -186,12 +189,15 @@ article section p {
 
 .additional-carousels {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
 }
 
 .additional-carousels .carousel {
-    width: 24%;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
 
@@ -214,4 +220,35 @@ footer section img {
 footer h4 {
     margin-top: 10px;
     font-size: 14px;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+    header .logo h1 {
+        font-size: 48px;
+    }
+    aside {
+        max-width: 250px;
+    }
+    article section {
+        width: calc(33.333% - 20px);
+    }
+    .ofertas-em-alta section {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        flex-wrap: nowrap;
+    }
+    aside {
+        margin-bottom: 0;
+    }
+    .additional-carousels .carousel {
+        width: 24%;
+        margin-bottom: 0;
+    }
 }
