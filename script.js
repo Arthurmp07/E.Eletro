@@ -64,3 +64,10 @@ function prevSlide(button) {
     items[activeIndex].classList.add('active');
     inner.style.transform = `translateX(-${activeIndex * 100}%)`;
 }
+
+//menu sanduiche
+function menuOnClick() {
+    document.getElementById("menu-bar").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change");
+    document.getElementById("menu-bg").classList.toggle("change-bg");
+  }
