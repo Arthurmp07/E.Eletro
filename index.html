@@ -24,10 +24,9 @@
             <div class="user-actions">
                 <a href="#loginModal" class="login-button"><i class="fas fa-user"></i> Login</a>
                 <a href="#cartModal" class="cart-button"><i class="fas fa-shopping-cart"></i> Carrinho (0)</a>
+                <a href="#filterModal" class="filter-button"><i class="fas fa-filter"></i> Filtros</a>
             </div>
         </div>
-        
-        
     </header>
 
     <nav class="categories">
@@ -57,39 +56,6 @@
     </div>
 
     <main class="content">
-        <aside>
-            <h2>Filtrar por</h2>
-            <section class="line"></section>
-            <h3>Preço</h3>
-            <input type="checkbox" id="preco1" name="preco" value="25-50">
-            <label for="preco1">de R$25 a R$50</label>
-            <br>
-            <input type="checkbox" id="preco2" name="preco" value="50-100">
-            <label for="preco2">de R$50 a R$100</label>
-            <br>
-            <input type="checkbox" id="preco3" name="preco" value="100-200">
-            <label for="preco3">de R$100 a R$200</label>
-            <br>
-            <input type="checkbox" id="preco4" name="preco" value="200-500">
-            <label for="preco4">de R$200 a R$500</label>
-            <br>
-            <input type="checkbox" id="preco5" name="preco" value="500-1000">
-            <label for="preco5">de R$500 a R$1000</label>
-            <section class="line"></section>
-            <h3>Tipo de Produto</h3>
-            <input type="checkbox" id="produto1" name="produto" value="geladeira">
-            <label for="produto1">Geladeira</label>
-            <br>
-            <input type="checkbox" id="produto2" name="produto" value="microondas">
-            <label for="produto2">Microondas</label>
-            <br>
-            <input type="checkbox" id="produto3" name="produto" value="fogao">
-            <label for="produto3">Fogão</label>
-            <br>
-            <input type="checkbox" id="produto4" name="produto" value="maquina-lavar">
-            <label for="produto4">Máquina de Lavar</label>
-        </aside>
-
         <section class="produtos" id="products">
             <article>
                 <section class="product" data-name="Produto 1" data-price="30" data-type="geladeira">
@@ -116,13 +82,29 @@
                     <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
                     <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
                 </section>
-                <section class="product" data-name="Produto 4" data-price="200" data-type="fogao">
-                    <img src="img/-985149444.jpg" alt="Produto 4">
-                    <h3>Produto 4</h3>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
                     <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p>Preço: R$200</p>
-                    <p class="description">Descrição do Produto 4. Ideal para suas receitas.</p>
-                    <button class="add-to-cart" onclick="addToCart('Produto 3', 250)">Adicionar ao Carrinho</button>
+                    <p>Preço: R$150</p>
+                    <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
+                </section>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>Preço: R$150</p>
+                    <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
+                </section>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>Preço: R$150</p>
+                    <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
                 </section>
                 <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
                     <img src="img/-985149444.jpg" alt="Produto 3">
@@ -143,6 +125,48 @@
 
             </article>
         </section>
+        <article>
+            <section>
+                <div class="categories-container">
+                    <h2>Tem na E.Eletro</h2>
+                    <div class="categories-items">
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Ofertas do dia" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width height src="https://s.mlcdn.com.br/banner/campanhas/0301_promo_hotlink_BFColchoesv1.png" loading="lazy" alt="Ofertas do dia">
+                            <p>Ofertas do dia</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Ferramentas" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/hotlink-ferramentas.png" loading="lazy">
+                            <p>Ferramentas</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Eletroportáteis" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/mundoportateis_iconehomeprincipal_hotlinkv3.png" loading="lazy">
+                            <p>Eletroportáteis</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Comércio e Industria" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/mundoinds_hotlink_cozinha.png" loading="lazy">
+                            <p>Comércio e Industria</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Brinquedos" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/hotlink_brinquedos_011223.png" loading="lazy">
+                            <p>Brinquedos</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Automotivo" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/hotlink-automotivo.png" loading="lazy">
+                            <p>Automotivo</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Casa" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/homeapp_iconehotlink_mundocasa.png" loading="lazy">
+                            <p>Casa</p>
+                        </div>
+                        <div class="category-item">
+                            <img data-testid="image" alt="Link para Utilidades Domésticas" class="sc-cWSHoV bLJsBf sc-bTcWjT chbavX" width="" height="" src="https://s.mlcdn.com.br/banner/campanhas/hotlink-utilidades.png" loading="lazy">
+                            <p>Utilidades Domésticas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
     </main>
 
     <footer>
@@ -152,7 +176,6 @@
             <button class="accessibility-button" onclick="toggleAccessibility()">Acessibilidade</button>
         </div>
     </footer>
-
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
@@ -169,11 +192,41 @@
 
     <div id="cartModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeCartModal()">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2>Carrinho de Compras</h2>
             <div id="cartItems"></div>
-            <p>Total: R$<span id="cartTotal">0.00</span></p>
-            <button onclick="checkout()">Finalizar Compra</button>
+            <p>Total: R$<span id="cartTotal">0</span></p>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div id="filterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <aside>
+                <h2>Filtrar Produtos</h2>
+                <div class="line"></div>
+                <div>
+                    <h3>Preço</h3>
+                    <input type="checkbox" id="price30" name="price30" value="30" onclick="filterProducts()">
+                    <label for="price30">Até R$30</label><br>
+                    <input type="checkbox" id="price60" name="price60" value="60" onclick="filterProducts()">
+                    <label for="price60">Até R$60</label><br>
+                    <input type="checkbox" id="price150" name="price150" value="150" onclick="filterProducts()">
+                    <label for="price150">Até R$150</label><br>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <h3>Tipo</h3>
+                    <input type="checkbox" id="typeGeladeira" name="typeGeladeira" value="geladeira" onclick="filterProducts()">
+                    <label for="typeGeladeira">Geladeira</label><br>
+                    <input type="checkbox" id="typeMicroondas" name="typeMicroondas" value="microondas" onclick="filterProducts()">
+                    <label for="typeMicroondas">Microondas</label><br>
+                    <input type="checkbox" id="typeFogao" name="typeFogao" value="fogao" onclick="filterProducts()">
+                    <label for="typeFogao">Fogão</label><br>
+                </div>
+                <div class="line"></div>
+            </aside>
         </div>
     </div>
 

@@ -263,3 +263,137 @@ items[activeIndex].classList.remove('active');
 activeIndex = (activeIndex - 1 + items.length) % items.length;
 items[activeIndex].classList.add('active');
 inner.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+
+function searchProducts(event) {
+    event.preventDefault();
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+        const productName = product.querySelector('h3').textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+function filterProducts() {
+    const price30 = document.getElementById('price30').checked;
+    const price60 = document.getElementById('price60').checked;
+    const price150 = document.getElementById('price150').checked;
+    const typeGeladeira = document.getElementById('typeGeladeira').checked;
+    const typeMicroondas = document.getElementById('typeMicroondas').checked;
+    const typeFogao = document.getElementById('typeFogao').checked;
+
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+        const productPrice = parseFloat(product.getAttribute('data-price'));
+        const productType = product.getAttribute('data-type');
+
+        let priceMatch = false;
+        let typeMatch = false;
+
+        if ((price30 && productPrice <= 30) ||
+            (price60 && productPrice <= 60) ||
+            (price150 && productPrice <= 150)) {
+            priceMatch = true;
+        }
+
+        if ((typeGeladeira && productType === 'geladeira') ||
+            (typeMicroondas && productType === 'microondas') ||
+            (typeFogao && productType === 'fogao')) {
+            typeMatch = true;
+        }
+
+        if (priceMatch && typeMatch) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+function addToCart(productName, productPrice) {
+    cart.push({ name: productName, price: productPrice });
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartModal = document.getElementById('cartModal');
+    const cartItemsContainer = cartModal.querySelector('#cartItems');
+    cartItemsContainer.innerHTML = '';
+
+    let total = 0;
+    cart.forEach(item => {
+        const itemElement = document.createElement('p');
+        itemElement.textContent = `${item.name} - R$${item.price}`;
+        cartItemsContainer.appendChild(itemElement);
+        total += item.price;
+    });
+
+    document.getElementById('cartTotal').textContent = total.toFixed(2);
+    document.querySelector('.cart-button').textContent = `Carrinho (${cart.length})`;
+}
+
+function finalizePurchase() {
+    alert('Compra finalizada com sucesso!');
+    cart = [];
+    updateCartDisplay();
+    closeModal();
+}
+
+function toggleAccessibility() {
+    document.body.classList.toggle('accessibility-mode');
+}
+
+function closeModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        modal.style.display = 'none';
+    });
+}
+
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+document.querySelectorAll('.user-actions a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetModal = document.querySelector(link.getAttribute('href'));
+        targetModal.style.display = 'block';
+    });
+});
+
+function prevSlide(button) {
+    const carousel = button.parentElement;
+    const inner = carousel.querySelector('.carousel-inner');
+    const items = inner.querySelectorAll('.carousel-item');
+    const active = inner.querySelector('.carousel-item.active');
+
+    let index = Array.from(items).indexOf(active);
+    index = (index > 0) ? index - 1 : items.length - 1;
+
+    active.classList.remove('active');
+    items[index].classList.add('active');
+}
+
+function nextSlide(button) {
+    const carousel = button.parentElement;
+    const inner = carousel.querySelector('.carousel-inner');
+    const items = inner.querySelectorAll('.carousel-item');
+    const active = inner.querySelector('.carousel-item.active');
+
+    let index = Array.from(items).indexOf(active);
+    index = (index < items.length - 1) ? index + 1 : 0;
+
+    active.classList.remove('active');
+    items[index].classList.add('active');
+}
