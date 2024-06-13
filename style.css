@@ -74,9 +74,16 @@ nav.categories {
     padding: 10px 20px;
 }
 
-nav.categories ul {
-    list-style: none;
-    margin: 0;
+
+/* Main Content */
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.msflix-destaque {
     padding: 0;
     display: flex;
     justify-content: space-around;
@@ -328,4 +335,17 @@ footer .footer-buttons button i {
 
 #cartItems div p {
     margin: 0;
+}
+
+@media (min-width: 1024px) {
+    main {
+        flex-wrap: nowrap;
+    }
+    aside {
+        margin-bottom: 0;
+    }
+    .additional-carousels .carousel {
+        width: 24%;
+        margin-bottom: 0;
+    }
 }

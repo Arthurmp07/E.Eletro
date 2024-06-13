@@ -60,6 +60,7 @@ function nextSlide(button) {
     let activeSlide = carousel.querySelector('.carousel-item.active');
     let nextSlide = activeSlide.nextElementSibling;
 
+
     if (nextSlide && nextSlide.classList.contains('carousel-item')) {
         activeSlide.classList.remove('active');
         nextSlide.classList.add('active');
@@ -257,3 +258,8 @@ window.onclick = function(event) {
 }
 
 let cart = [];
+
+items[activeIndex].classList.remove('active');
+activeIndex = (activeIndex - 1 + items.length) % items.length;
+items[activeIndex].classList.add('active');
+inner.style.transform = `translateX(-${activeIndex * 100}%)`;
