@@ -6,30 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E.Eletro</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-
     <header>
         <div class="header-content">
             <div class="logo">
                 <h1>E.<span>Eletro</span></h1>
             </div>
+            <div class="search-bar">
+                <form class="search-form" onsubmit="searchProducts(event)">
+                    <input type="search" id="search-input" placeholder="Buscar produtos, marcas e muito mais...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="user-actions">
+                <a href="#loginModal" class="login-button"><i class="fas fa-user"></i> Login</a>
+                <a href="#cartModal" class="cart-button"><i class="fas fa-shopping-cart"></i> Carrinho (0)</a>
+            </div>
         </div>
     </header>
 
+    <nav class="categories">
+        <ul>
+            <li><a href="#eletronicos">Eletrônicos</a></li>
+            <li><a href="#eletrodomesticos">Eletrodomésticos</a></li>
+            <li><a href="#moda">Moda</a></li>
+            <li><a href="#esportes">Esportes</a></li>
+            <li><a href="#automotivo">Automotivo</a></li>
+        </ul>
+    </nav>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/oferta.jpg" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="img/oferta2.jpg" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="img/oferta3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <button class="carousel-control prev" onclick="prevSlide(this)">&#10094;</button>
+        <button class="carousel-control next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+
     <main class="content">
         <aside>
-            <form class="search-form" onsubmit="searchProducts(event)">
-                <div class="divSearch">
-                    <label for="search">Buscar dados</label>
-                    <input type="search" id="search-input" />
-                    <button type="submit">🔍</button>
-                </div>
-            </form>
-            <h2>Filtre por</h2>
+            <h2>Filtrar por</h2>
             <section class="line"></section>
-            <h2>Preço</h2>
+            <h3>Preço</h3>
             <input type="checkbox" id="preco1" name="preco" value="25-50">
             <label for="preco1">de R$25 a R$50</label>
             <br>
@@ -45,7 +74,7 @@
             <input type="checkbox" id="preco5" name="preco" value="500-1000">
             <label for="preco5">de R$500 a R$1000</label>
             <section class="line"></section>
-            <h2>Tipo de Produto</h2>
+            <h3>Tipo de Produto</h3>
             <input type="checkbox" id="produto1" name="produto" value="geladeira">
             <label for="produto1">Geladeira</label>
             <br>
@@ -54,6 +83,9 @@
             <br>
             <input type="checkbox" id="produto3" name="produto" value="fogao">
             <label for="produto3">Fogão</label>
+            <br>
+            <input type="checkbox" id="produto4" name="produto" value="maquina-lavar">
+            <label for="produto4">Máquina de Lavar</label>
         </aside>
 
         <section class="produtos" id="products">
@@ -64,6 +96,7 @@
                     <div class="rating">⭐⭐⭐⭐☆</div>
                     <p>Preço: R$30</p>
                     <p class="description">Descrição do Produto 1. Um ótimo produto para sua casa.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 1', 30)">Adicionar ao Carrinho</button>
                 </section>
                 <section class="product" data-name="Produto 2" data-price="60" data-type="microondas">
                     <img src="img/-985149444.jpg" alt="Produto 2">
@@ -71,6 +104,7 @@
                     <div class="rating">⭐⭐⭐☆☆</div>
                     <p>Preço: R$60</p>
                     <p class="description">Descrição do Produto 2. Um ótimo produto para sua cozinha.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 2', 60)">Adicionar ao Carrinho</button>
                 </section>
                 <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
                     <img src="img/-985149444.jpg" alt="Produto 3">
@@ -78,106 +112,68 @@
                     <div class="rating">⭐⭐⭐⭐⭐</div>
                     <p>Preço: R$150</p>
                     <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
                 </section>
-                <section class="product" data-name="Produto 4" data-price="300" data-type="geladeira">
-                    <img src="img/51PF1Qez1rL._AC_UF894,1000_QL80_.jpg" alt="Produto 4">
+                <section class="product" data-name="Produto 4" data-price="200" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 4">
                     <h3>Produto 4</h3>
-                    <div class="rating">⭐⭐⭐⭐☆</div>
-                    <p>Preço: R$300</p>
-                    <p class="description">Descrição do Produto 4. Excelente eficiência energética.</p>
-                </section>
-                <section class="product" data-name="Produto 5" data-price="700" data-type="microondas">
-                    <img src="img/51PF1Qez1rL._AC_UF894,1000_QL80_.jpg" alt="Produto 5">
-                    <h3>Produto 5</h3>
-                    <div class="rating">⭐⭐⭐☆☆</div>
-                    <p>Preço: R$700</p>
-                    <p class="description">Descrição do Produto 5. Tecnologia de ponta para sua cozinha.</p>
-                </section>
-                <section class="product" data-name="Produto 6" data-price="80" data-type="fogao">
-                    <img src="img/51PF1Qez1rL._AC_UF894,1000_QL80_.jpg" alt="Produto 6">
-                    <h3>Produto 6</h3>
-                    <div class="rating">⭐⭐⭐⭐☆</div>
-                    <p>Preço: R$80</p>
-                    <p class="description">Descrição do Produto 6. Compacto e eficiente.</p>
-                </section>
-            </article>
-            <article class="ofertas-em-alta">
-                <h2>Ofertas em Alta</h2>
-                <section class="product" data-name="Produto A" data-price="40" data-type="geladeira">
-                    <img src="img/images.jpg" alt="Produto A">
-                    <h3>Produto A</h3>
-                    <div class="rating">⭐⭐⭐⭐☆</div>
-                    <p>Preço: R$40</p>
-                    <p class="description">Descrição do Produto A. Qualidade e preço acessível.</p>
-                </section>
-                <section class="product" data-name="Produto B" data-price="90" data-type="microondas">
-                    <img src="img/images.jpg" alt="Produto B">
-                    <h3>Produto B</h3>
-                    <div class="rating">⭐⭐⭐☆☆</div>
-                    <p>Preço: R$90</p>
-                    <p class="description">Descrição do Produto B. Eficiente e moderno.</p>
-                </section>
-                <section class="product" data-name="Produto C" data-price="180" data-type="fogao">
-                    <img src="img/images.jpg" alt="Produto C">
-                    <h3>Produto C</h3>
                     <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p>Preço: R$180</p>
-                    <p class="description">Descrição do Produto C. Desempenho superior.</p>
+                    <p>Preço: R$200</p>
+                    <p class="description">Descrição do Produto 4. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 250)">Adicionar ao Carrinho</button>
                 </section>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>Preço: R$150</p>
+                    <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
+                </section>
+                <section class="product" data-name="Produto 3" data-price="150" data-type="fogao">
+                    <img src="img/-985149444.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>Preço: R$150</p>
+                    <p class="description">Descrição do Produto 3. Ideal para suas receitas.</p>
+                    <button class="add-to-cart" onclick="addToCart('Produto 3', 150)">Adicionar ao Carrinho</button>
+                </section>
+
             </article>
         </section>
     </main>
-    <div class="additional-carousels">
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 3">
-                </div>
-            </div>
-            <button class="carousel-control prev" onclick="prevSlide(this)">&#10094;</button>
-            <button class="carousel-control next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 3">
-                </div>
-            </div>
-            <button class="carousel-control prev" onclick="prevSlide(this)">&#10094;</button>
-            <button class="carousel-control next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/refrigerador-geladeira-brastemp-frost-free-400-litros-brm54jb-1_640x640+fill_ffffff.jpg" alt="Slide 3">
-                </div>
-            </div>
-            <button class="carousel-control prev" onclick="prevSlide(this)">&#10094;</button>
-            <button class="carousel-control next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-    </div>
 
     <footer>
         <p>&copy; Site feito por Arthur Mello Pimentel. Todos os direitos reservados.</p>
+        <div class="footer-buttons">
+            <a href="https://wa.me/5551992517054" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Fale com o vendedor</a>
+            <button class="accessibility-button" onclick="toggleAccessibility()">Acessibilidade</button>
+        </div>
     </footer>
+
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form id="loginForm">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <p>Total: R$<span id="cartTotal">0.00</span></p>
+            <button onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
