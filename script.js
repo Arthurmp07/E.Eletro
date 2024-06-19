@@ -41,6 +41,10 @@ document.querySelectorAll('input[name="preco"], input[name="produto"]').forEach(
     input.addEventListener('change', filterProducts);
 });
 
+document.querySelectorAll('input[name="preco"], input[name="produto"]').forEach(input => {
+    input.addEventListener('change', filterProducts);
+});
+
 function prevSlide(button) {
     let carousel = button.closest('.carousel');
     let activeSlide = carousel.querySelector('.carousel-item.active');
